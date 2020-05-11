@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Home page</title>
+</head>
+<body>
+<div id="login-form">
+    <form th:onsubmit="login(event)">
+        <input type="text" name="username" placeholder="username">
+        <button type="submit">Login</button>
+    </form>
+</div>
+<script th:src="@{../js/login.js}"></script>
+</body>
+</html>

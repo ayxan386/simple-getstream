@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.7.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'com.aykhan'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.2.7.RELEASE'
+    compile 'io.getstream.client:stream-java:3.2.3'
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    compile group: 'jakarta.xml.bind', name: 'jakarta.xml.bind-api', version: '2.3.3'
+}
+
+test {
+    useJUnitPlatform()
+}
